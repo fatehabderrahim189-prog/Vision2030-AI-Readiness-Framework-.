@@ -483,14 +483,12 @@ with tab2:
     # Table
     st.markdown('<div class="section-title">📋 Comparative Data Table</div>', unsafe_allow_html=True)
     st.dataframe(
-        df_compare.style
-        .background_gradient(subset=["Composite"], cmap="Greens")
-        .format(precision=1)
-        .highlight_max(subset=["Composite"], color="#bbf7d0")
-        .highlight_min(subset=["Vision Gap"], color="#bbf7d0"),
-        use_container_width=True,
-        height=280,
-    )
+        df_compare)
+        
+        
+       
+       
+    
 
 # ════════════════════════════════════════════════════════════════════════════════
 # TAB 3 — RECOMMENDATIONS
