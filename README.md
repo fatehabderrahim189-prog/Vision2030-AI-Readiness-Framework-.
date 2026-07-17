@@ -42,7 +42,8 @@ The framework synthesizes **five core pillars** into a weighted composite readin
 
 ## 🚀 Live Demo
 
-> **[🌐 Open Interactive Dashboard →](https://your-app.streamlit.app)**
+> **[🌐 Open Interactive Dashboard →]
+> https://qsxjdnqtcd5frcfsbl7wgz.streamlit.app/
 
 ---
 
