@@ -1,6 +1,12 @@
 """
 Vision 2030 AI Readiness Framework
-Countries Data Module — Based on World Bank, WEF, ITU, Oxford Insights 2023-2024
+Countries Data Module
+
+NOTE: Indicator values below are plausible, directionally-realistic
+ESTIMATES constructed to demonstrate the scoring methodology. They are
+NOT individually sourced, verified, or extracted from World Bank/WEF/ITU/
+Oxford Insights reports — no per-value citation exists. See the README
+"A note on the data" section before using or citing these figures.
 
 Indicators per pillar (0–100 normalized scale):
   infrastructure : broadband_penetration, mobile_connectivity, cloud_adoption,
@@ -9,6 +15,21 @@ Indicators per pillar (0–100 normalized scale):
                    research_publications_ai, university_quality_index
   governance     : ai_policy_maturity, data_protection_law, cybersecurity_index,
                    open_data_score, digital_regulation_quality
+  innovation     : rd_expenditure_gdp, startup_ecosystem_score, patent_applications,
+                   tech_unicorns_index, innovation_capacity
+  data           : open_data_availability, data_infrastructure_quality,
+                   big_data_adoption, iot_deployment, data_sovereignty_index
+              
+                   
+"""
+
+Indicators per pillar (0–100 normalized scale):
+  infrastructure : broadband_penetration, mobile_connectivity, cloud_adoption,
+                   ict_investment_gdp, data_center_density
+  talent         : stem_graduates_rate, ai_talent_index, digital_skills_score,
+                   research_publications_ai, university_quality_index
+  governance     : ai_policy_maturity, data_protection_law, cybersecurity_index,
+                   open_data_score, digital_regulation_quali
   innovation     : rd_expenditure_gdp, startup_ecosystem_score, patent_applications,
                    tech_unicorns_index, innovation_capacity
   data           : open_data_availability, data_infrastructure_quality,
