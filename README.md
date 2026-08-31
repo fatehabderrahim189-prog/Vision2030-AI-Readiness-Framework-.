@@ -1,181 +1,136 @@
 # 🌐 Vision 2030 AI Readiness Framework
 
-<div align="center">
+![Streamlit App](https://img.shields.io/badge/Streamlit-App-red) ![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue) ![License: MIT](https://img.shields.io/badge/License-MIT-green) ![Research](https://img.shields.io/badge/Status-Research%20Prototype-orange)
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app.streamlit.app)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Research](https://img.shields.io/badge/Research-MIS%20%7C%20AI%20Strategy-orange.svg)](#)
-[![Vision 2030](https://img.shields.io/badge/Aligned-Saudi%20Vision%202030-006c35.svg)](#)
-
-**A Multi-Dimensional Assessment Model for Digital Economy Transformation**  
-*Aligned with Saudi Vision 2030 · GCC Digital Agenda · UN SDG 9*
-
-</div>
+**A Multi-Dimensional Assessment Model for Digital Economy Transformation**
+Aligned with Saudi Vision 2030 · GCC Digital Agenda · UN SDG 9
 
 ---
 
 ## 📋 Abstract
 
-The **Vision 2030 AI Readiness Framework (V2030-ARF)** is an open-source, multi-dimensional assessment model designed to evaluate and benchmark national artificial intelligence readiness levels against the strategic objectives of Saudi Vision 2030 and broader GCC digital transformation agendas.
-
-The framework synthesizes **five core pillars** into a weighted composite readiness index:
+The Vision 2030 AI Readiness Framework (V2030-ARF) is an open-source research prototype exploring how institutions and countries can be assessed for AI readiness across five weighted pillars.
 
 | Pillar | Key Indicators |
-|--------|---------------|
+|---|---|
 | 🔌 Digital Infrastructure | Broadband penetration, cloud adoption, ICT investment |
 | 🎓 Human Capital & Talent | STEM graduates, AI talent index, digital skills |
 | ⚖️ AI Governance & Policy | Policy maturity, data protection, cybersecurity |
 | 🚀 Innovation Ecosystem | R&D expenditure, startup density, patent applications |
 | 📊 Data Economy | Open data availability, big data adoption, IoT deployment |
 
----
+## 📌 A note on the data (read this first)
+
+The 10-country dataset (`data/countries_data.py`, 250 indicator values) consists of **plausible estimates**, not values individually sourced, verified, or extracted from World Bank/WEF/ITU/Oxford Insights reports. The values were constructed to be directionally realistic (e.g. Singapore and the US score high, Algeria and Egypt score lower, consistent with general public knowledge of these countries' digital development), but **no individual figure traces to a specific cited report, page, or year.** The header comment referencing these organizations describes the general inspiration for the indicator categories, not a per-value data provenance.
+
+**Treat every score in the dashboard as a demonstration of the scoring methodology on illustrative data — not as a real, defensible national AI-readiness ranking.** This is an important distinction for anyone citing this project: the *framework* (the weighting methodology, the five-pillar structure) is the research contribution; the *current numbers* are placeholders showing how that framework would work once populated with verified data. Building a real, cited data pipeline is the top item under Future Work below.
 
 ## 🎯 Research Objectives
 
-1. Develop a reproducible, open-source AI readiness index aligned with Vision 2030 KPIs
-2. Enable cross-national comparison across 10+ countries using World Bank, WEF, and ITU data
-3. Generate evidence-based policy recommendations for bridging the AI readiness gap
-4. Provide an interactive tool for policymakers, researchers, and development organizations
-
----
+1. Design a structured, reproducible AI readiness assessment framework.
+2. Integrate multiple institutional dimensions into a unified, weighted evaluation model.
+3. Develop an interpretable, adjustable scoring methodology.
+4. Provide an open-source, interactive tool for policymakers and researchers to explore the methodology.
 
 ## 🚀 Live Demo
 
-> **[🌐 Open Interactive Dashboard →]
-> https://qsxjdnqtcd5frcfsbl7wgz.streamlit.app/
-
----
+🌐 [Open Interactive Dashboard](https://qsxjdnqtcd5frcfsbl7wgz.streamlit.app/)
 
 ## 📊 Framework Architecture
 
 ```
 V2030-ARF Score = Σ(wᵢ × Pᵢ), where Σwᵢ = 1.0, 0 ≤ Pᵢ ≤ 100
-
 Pillar Score (Pᵢ) = Mean(normalized sub-indicators)
 Default Weights: 0.20 per pillar (fully adjustable via dashboard)
 ```
 
-### Sub-Indicator Sources
-- **World Bank** — World Development Indicators (WDI)
-- **World Economic Forum** — Global Competitiveness Report 2023
-- **ITU** — ICT Development Index 2023
-- **Oxford Insights** — Government AI Readiness Index 2023
-- **OECD** — AI Policy Observatory
+**Pipeline:** Data Ingestion → Min-Max Normalization → Pillar Aggregation → Weighted Scoring → Visualization
 
----
+## 🗂️ Repository Structure
 
-## 🗂️ Project Structure
+This reflects what is actually in the repository (not an aspirational structure):
 
 ```
-Vision2030-AI-Readiness-Framework/
+Vision2030-AI-Readiness-Framework-/
 │
 ├── app.py                      # Main Streamlit application
 ├── requirements.txt            # Python dependencies
-├── README.md                   # Project documentation
+├── README.md                   # This file
+├── Vision_2030_AI_Readiness_Framework...pdf   # Technical report (v1.0)
 │
 ├── models/
 │   ├── __init__.py
-│   ├── scoring.py              # Composite index computation
-│   └── readiness_engine.py     # Recommendations & trend engine
+│   ├── scoring.py               # Composite index computation
+│   └── readiness_engine.py      # Recommendations & trend engine
 │
 ├── data/
 │   ├── __init__.py
-│   └── countries_data.py       # 10-country normalized dataset
+│   └── countries_data.py        # 10-country illustrative dataset — see data note above
 │
-├── research/
-│   └── V2030_ARF_Research_Paper.md   # Full academic paper
-│
-└── assets/
-    └── screenshots/            # Dashboard screenshots
+└── .github/workflows/           # CI configuration
 ```
-
----
 
 ## ⚙️ Installation & Local Setup
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/Vision2030-AI-Readiness-Framework.git
-cd Vision2030-AI-Readiness-Framework
+git clone https://github.com/fatehabderrahim189-prog/Vision2030-AI-Readiness-Framework-.git
+cd Vision2030-AI-Readiness-Framework-
 
-# 2. Create virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# 3. Install dependencies
 pip install -r requirements.txt
-
-# 4. Run the application
 streamlit run app.py
 ```
-
-App will open at `http://localhost:8501`
-
----
+App opens at `http://localhost:8501`.
 
 ## 🌍 Countries Included (v1.0)
 
 Saudi Arabia · UAE · Singapore · South Korea · Germany · United States · Malaysia · Egypt · Morocco · Algeria
 
----
-
 ## 📈 Key Features
 
-- **Interactive Radar Charts** — Visualize pillar-by-pillar readiness profiles
-- **Global Comparison Heatmaps** — Cross-national benchmarking across 10 nations
-- **AI-Generated Policy Recommendations** — Prioritized by gap severity
-- **Implementation Roadmaps** — Projected score improvements over 5-year horizons
-- **Adjustable Pillar Weights** — Sensitivity analysis for different policy priorities
-- **Embedded Research Report** — Full academic paper with Literature Review, Methodology, Results
+- Interactive radar charts — pillar-by-pillar readiness profiles
+- Global comparison heatmaps across the 10 included countries
+- Adjustable pillar weights for sensitivity analysis
+- Auto-generated policy recommendations based on the configured weights
+- Embedded technical report
 
----
+## 📄 Technical Report
 
-## 📄 Research Paper
-
-The full academic paper is available in [`research/V2030_ARF_Research_Paper.md`](research/V2030_ARF_Research_Paper.md).
+The full technical report (methodology, limitations, references) is included in the repository as a PDF: `Vision_2030_AI_Readiness_Framework___Institutional_AI_Readiness_Assessment_Platform (1).pdf`.
 
 **Citation (APA):**
 ```
-Boukhalfa, F. A. (2026). Vision 2030 AI Readiness Framework: A Multi-Dimensional 
-Assessment Model for Digital Economy Transformation in Emerging Economies. 
-USTHB, Algiers, Algeria. GitHub: https://github.com/YOUR_USERNAME/Vision2030-AI-Readiness-Framework
+Boukhalfa, F. A. (2026). Vision 2030 AI Readiness Framework: A Multi-Dimensional
+Assessment Model for Digital Economy Transformation in Emerging Economies.
+USTHB, Algiers, Algeria. GitHub: https://github.com/fatehabderrahim189-prog/Vision2030-AI-Readiness-Framework-
 ```
 
----
+## Limitations
+
+- The dataset is illustrative/estimated, not individually sourced or verified per indicator (see data note above). Composite scores are a methodology demonstration, not a validated ranking.
+- The model relies on static, manually-constructed indicators rather than a live, cited data pipeline.
+- It is a diagnostic/exploratory tool, not a certified assessment instrument.
+
+## 🔭 Future Work
+
+- Integrate a live, cited data pipeline (World Bank / WEF / ITU APIs) with per-indicator source links
+- Independently re-verify current dataset values against primary sources
+- Validate the weighting methodology against expert or institutional feedback
+- Arabic-language interface
 
 ## 👤 Author
 
-**Fateh Abderrahim Boukhalfa**  
-First-Year STEM Student | University of Sciences and Technology Houari Boumediene (USTHB)  
-Algiers, Algeria
-
-- 📧 fatehabderrahim189@gmail.com  
-- 🎓 PSAT 1520/1520 (Top 1% Globally)  
-- 🌐 C1-C2 English Proficiency (EF Certified)  
-- 📜 11+ International Certifications (HP LIFE · HubSpot · IBM SkillsBuild)  
-- 🔬 Research Interests: MIS · AI Strategy · Digital Transformation · Vision 2030
-
----
+**Fateh Abderrahim Boukhalfa**
+Engineering student, University of Sciences and Technology Houari Boumediene (USTHB), Algiers, Algeria
+📧 fatehabderrahim189@gmail.com
 
 ## 📜 License
 
-MIT License — see [LICENSE](LICENSE) for details.
-
----
+MIT License — see `LICENSE`.
 
 ## 🤝 Contributing
 
-Contributions welcome! Please open an issue or submit a pull request.
+Contributions welcome — please open an issue or pull request. Areas of interest: live data integration, additional countries, predictive modeling, Arabic interface.
 
-Areas for contribution:
-- Adding more countries to the dataset
-- Integrating live World Bank API feeds
-- Machine learning-based predictive modeling
-- Arabic language interface
-
----
-
-<div align="center">
-<strong>⭐ Star this repository if you find it useful for your research!</strong>
-</div>
